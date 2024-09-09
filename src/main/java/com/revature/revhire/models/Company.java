@@ -2,6 +2,8 @@ package com.revature.revhire.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,9 +26,11 @@ public class Company {
     @Column(name = "company_name", nullable = false, length = 255)
     private String companyName;
 
-    @Column(name = "email_address", nullable = false, length = 255)
+    @Email(regexp = "[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}", message = "invalid email ")
+    @Column(name = "email_address", nullable = false, length = 255,unique = true)
     private String emailAddress;
 
+    @Pattern(regexp = "^[6-9]\\d{9}$", message = "Phone number must be valid")
     @Column(name = "contact_number", length = 255)
     private String contactNumber;
 
