@@ -1,7 +1,7 @@
 package com.revature.revhire.enums;
 
 public enum Role {
-    ADMIM,
+    ADMIN,
     EMPLOYER,
     JOB_SEEKER
 }

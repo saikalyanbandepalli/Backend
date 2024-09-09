@@ -1,5 +1,6 @@
 package com.revature.revhire.models;
 
+import com.revature.revhire.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class Application {
     @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private String status;
+    private Status status;
 }
