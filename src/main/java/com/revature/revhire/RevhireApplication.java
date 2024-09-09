@@ -1,4 +1,4 @@
-package com.example.revhire;
+package com.revature.revhire;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

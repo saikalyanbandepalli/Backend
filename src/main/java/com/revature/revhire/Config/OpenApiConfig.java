@@ -1,4 +1,4 @@
-package com.example.revhire.Config;
+package com.revature.revhire.Config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -12,7 +12,7 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI(){
         return new OpenAPI().info(
                 new Info()
-                        .title("RevTask Application")
+                        .title("RevHire Application")
                         .version("0.1")
                         .description("Swagger for crud APIs")
         );

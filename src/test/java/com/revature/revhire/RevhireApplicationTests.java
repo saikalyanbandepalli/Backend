@@ -1,4 +1,4 @@
-package com.example.revhire;
+package com.revature.revhire;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
