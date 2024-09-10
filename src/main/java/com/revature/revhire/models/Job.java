@@ -53,7 +53,8 @@ public class Job {
     @Column(name = "no_of_position")
     private long noOfPosition;
 
-    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<Skills> skills;
+//    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Skills> skills;
+//}
 }

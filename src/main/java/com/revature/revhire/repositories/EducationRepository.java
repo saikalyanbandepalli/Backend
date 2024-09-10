@@ -1,13 +1,9 @@
 package com.revature.revhire.repositories;
 
-import com.revature.revhire.models.Skills;
+import com.revature.revhire.models.Education;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SkillsRepository extends JpaRepository<Skills, Long> {
-
+public interface EducationRepository extends JpaRepository<Education, Long> {
 }
-
-
-
