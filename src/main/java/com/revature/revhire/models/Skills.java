@@ -22,4 +22,14 @@ public class Skills {
 
     @Column(name = "skill_description", columnDefinition = "TEXT")
     private String skillDescription;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "job_id")
+    private Job job;
+
+
 }
