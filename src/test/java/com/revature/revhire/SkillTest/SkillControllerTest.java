@@ -1,6 +1,6 @@
 package com.revature.revhire.SkillTest;
 
-import com.revature.revhire.Controllers.SkillsController;
+import com.revature.revhire.controllers.SkillsController;
 import com.revature.revhire.models.Skills;
 import com.revature.revhire.services.SkillsService;
 import com.revature.revhire.utilities.BaseResponse;

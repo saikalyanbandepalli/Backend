@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -30,12 +31,12 @@ public class Employee {
     @Column(name = "user_name", nullable = false, length = 255)
     private String userName;
 
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$", message = "Password must meet criteria")
+   // @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$", message = "Password must meet criteria")
     @Column(name = "password", nullable = false, length = 255)
     private String password;
 
     @Email(regexp = "[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}", message = "invalid email ")
-    @Column(name = "email", nullable = false, length = 255,unique = true)
+    @Column(name = "email", nullable = false, length = 255, unique = true)
     private String email;
 
     @NotNull(message = "first name should not be empty")
@@ -73,5 +74,5 @@ public class Employee {
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<Skills> skills;
+    private List<Skills> skills = new ArrayList<>();
 }
