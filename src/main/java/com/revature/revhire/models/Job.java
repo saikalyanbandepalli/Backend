@@ -1,13 +1,14 @@
 package com.revature.revhire.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.revature.revhire.enums.ExperienceRequired;
+import com.revature.revhire.enums.JobType;
+import com.revature.revhire.enums.SalaryRange;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -19,41 +20,73 @@ public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "job_id")
-    private long jobId;
+    private Long jobId;
 
-    @Column(name = "job_title", nullable = false, length = 255)
+    @Column(name = "job_title", nullable = false, length = 100)
     private String jobTitle;
 
-    @Column(name = "job_description", columnDefinition = "TEXT")
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
+    @Column(name = "job_description", columnDefinition = "TEXT", nullable = false)
     private String jobDescription;
 
-    @Column(name = "job_location", length = 255)
-    private String jobLocation;
-
-    @Column(name = "salary_range", length = 255)
-    private String salaryRange;
-
-    @Column(name = "experience", length = 255)
-    private String experience;
-
-    @ManyToOne
-    @JoinColumn(name = "employee_creator", nullable = false)
-    private Employee employeeCreator;
+    @Column(name = "skills_required", nullable = false)
+    private String skillsRequired;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    @Column(name = "start_date")
-    private Date startDate;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "job_type", nullable = false)
+    private JobType jobType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "salary_range", nullable = false)
+    private SalaryRange salaryRange;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "experience_required", nullable = false)
+    private ExperienceRequired experienceRequired;
+
+    @Column(name = "street", nullable = false, length = 150)
+    private String street;
+
+    @Column(name = "city", nullable = false, length = 100)
+    private String city;
+
+    @Column(name = "pincode", nullable = false, length = 10)
+    private String pincode;
+
+    @Column(name = "state", nullable = false, length = 100)
+    private String state;
+
+    @Column(name = "country", nullable = false, length = 100)
+    private String country;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
+
+    @Column(name = "post_date")
+    private Date postDate;
 
     @Column(name = "end_date")
     private Date endDate;
 
-    @Column(name = "no_of_position")
-    private long noOfPosition;
+//    @Lob
+//    @Column(name = "company_logo", columnDefinition = "VARBINARY(MAX)", nullable = true)
+//    private byte[] companyLogo;
+//
+//    public void setCompanyLogo(byte[] companyLogo) {
+//        if (companyLogo != null && companyLogo.length > 0) {
+//            this.companyLogo = companyLogo;
+//        } else {
+//            throw new IllegalArgumentException("Company logo cannot be empty.");
+//        }
+//    }
 
-    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<Skills> skills;
+
 }

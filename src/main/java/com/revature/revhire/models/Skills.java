@@ -27,9 +27,4 @@ public class Skills {
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
-    @ManyToOne
-    @JoinColumn(name = "job_id")
-    private Job job;
-
-
 }

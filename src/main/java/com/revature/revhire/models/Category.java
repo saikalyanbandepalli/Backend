@@ -26,8 +26,8 @@ public class Category {
     @Column(name = "category_description", columnDefinition = "TEXT")
     private String categoryDescription;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<Job> jobs;
+//    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Job> jobs;
 }
 

@@ -45,8 +45,8 @@ public class Company {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp modifiedAt;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<Employee> employees;
+//    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Employee> employees;
 }
 
